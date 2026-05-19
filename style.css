@@ -1,0 +1,139 @@
+/* RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HERO SECTION / HEADER */
+.hero {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.badge {
+    background-color: #ff9f43;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* GRID & CARDS */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 50px 0;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Efek saat kursor diarahkan ke kartu */
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #2a5298;
+    box-shadow: 0 15px 30px rgba(42, 82, 152, 0.15);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    color: #1e3c72;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.btn-visit {
+    display: inline-block;
+    background-color: #e3edf7;
+    color: #1e3c72;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.card:hover .btn-visit {
+    background-color: #2a5298;
+    color: white;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #777;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+/* RESPONSIVE FOR MOBILE */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .grid-container {
+        grid-template-columns: 1fr; /* Di HP jadi 1 baris memanjang ke bawah */
+    }
+}
