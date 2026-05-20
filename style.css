@@ -206,3 +206,42 @@ footer {
         padding: 30px 20px;
     }
 }
+/* =========================================
+   GAYA UNTUK GAMBAR HEADER
+   ========================================= */
+
+/* Wadah untuk logo/gambar agar rapi di tengah */
+.logo-wrapper {
+    margin-bottom: 25px; /* Memberi jarak ke badge kuning di bawahnya */
+    display: flex;
+    justify-content: center; /* Membuat gambar tepat di tengah */
+    align-items: center;
+}
+
+/* Mengatur ukuran dan tampilan gambarnya */
+.hero-logo {
+    max-width: 280px; /* Lebar maksimal gambar di laptop */
+    width: 80%;       /* Di layar kecil/HP, gambar akan selebar 80% layar */
+    height: auto;     /* Tinggi menyesuaikan agar gambar tidak gepeng */
+    border-radius: 20px; /* Membuat sudut gambar sedikit tumpul */
+    
+    /* Sedikit efek shadow agar gambar "mengambang" */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+    
+    /* Animasi muncul halus saat web dibuka */
+    animation: fadeInLogo 1s ease-out; 
+}
+
+/* Animasi muncul (fade in) */
+@keyframes fadeInLogo {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mengatur ukuran di HP (Responsive) */
+@media (max-width: 768px) {
+    .hero-logo {
+        max-width: 200px; /* Gambar mengecil di layar HP */
+        margin-bottom: 15px;
+    }
+}
