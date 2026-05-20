@@ -206,42 +206,103 @@ footer {
         padding: 30px 20px;
     }
 }
-/* =========================================
-   GAYA UNTUK GAMBAR HEADER
-   ========================================= */
+/* ==========================================================================
+   DESAIN HEADER: GAMBAR DI ATAS TEKS (BANNER 1920 x 600)
+   ========================================================================== */
 
-/* Wadah untuk logo/gambar agar rapi di tengah */
-.logo-wrapper {
-    margin-bottom: 25px; /* Memberi jarak ke badge kuning di bawahnya */
-    display: flex;
-    justify-content: center; /* Membuat gambar tepat di tengah */
-    align-items: center;
+.hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); /* Warna biru background teks */
+    color: white;
+    padding: 0 0 80px 0; /* Padding bawah 80px untuk memberi ruang teks, atasnya 0 agar gambar mepet */
+    text-align: center;
+    position: relative;
+    border-bottom: 8px solid #fbbf24; /* Aksen Kuning OSIS di paling bawah header */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Mengatur ukuran dan tampilan gambarnya */
-.hero-logo {
-    max-width: 280px; /* Lebar maksimal gambar di laptop */
-    width: 80%;       /* Di layar kecil/HP, gambar akan selebar 80% layar */
-    height: auto;     /* Tinggi menyesuaikan agar gambar tidak gepeng */
-    border-radius: 20px; /* Membuat sudut gambar sedikit tumpul */
-    
-    /* Sedikit efek shadow agar gambar "mengambang" */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-    
-    /* Animasi muncul halus saat web dibuka */
-    animation: fadeInLogo 1s ease-out; 
+/* Wadah Gambar Banner */
+.hero-banner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0; /* Menghilangkan gap putih di bawah gambar */
+    margin-bottom: 40px; /* Jarak antara gambar banner dengan teks di bawahnya */
 }
 
-/* Animasi muncul (fade in) */
-@keyframes fadeInLogo {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Pengaturan Gambar Banner Desain Lu */
+.hero-banner-img {
+    width: 100%;
+    height: auto;
+    max-height: 500px; /* Kita batasi maksimal 500px agar di laptop tidak terlalu memakan layar ke bawah */
+    object-fit: cover; /* Biar gambar kepotong rapi kalau layarnya terlalu lebar */
 }
 
-/* Mengatur ukuran di HP (Responsive) */
+/* Konten Teks di Bawah Gambar */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.badge {
+    background-color: #fbbf24;
+    color: #1e3a8a;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero p {
+    font-size: 1.15rem;
+    max-width: 750px;
+    margin: 0 auto;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Penyesuaian Grid Kartu Kelompok (Mading Tumpuk) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 50px 0;
+    margin-top: -30px; /* Membuat kartu agak naik menumpuk sedikit ke area teks biru */
+    position: relative;
+    z-index: 10;
+}
+
+/* ==========================================================================
+   TAMPILAN RESPONSIVE DI HP
+   ========================================================================== */
 @media (max-width: 768px) {
-    .hero-logo {
-        max-width: 200px; /* Gambar mengecil di layar HP */
-        margin-bottom: 15px;
+    .hero {
+        padding-bottom: 60px;
+    }
+    .hero-banner-wrapper {
+        margin-bottom: 25px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+    .hero p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+    .grid-container {
+        margin-top: -10px;
+        padding: 30px 15px;
     }
 }
