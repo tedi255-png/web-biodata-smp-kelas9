@@ -230,7 +230,7 @@ footer {
 
 /* Pengaturan Gambar Banner Desain Lu */
 .hero-banner-img {
-    width: 150%;
+    width: 100%;
     height: auto;
     max-height: 500px; /* Kita batasi maksimal 500px agar di laptop tidak terlalu memakan layar ke bawah */
     object-fit: cover; /* Biar gambar kepotong rapi kalau layarnya terlalu lebar */
