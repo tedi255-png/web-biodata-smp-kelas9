@@ -207,33 +207,44 @@ footer {
     }
 }
 /* ==========================================================================
-   DESAIN HEADER: GAMBAR DI ATAS TEKS (BANNER 1920 x 600)
+   KODE KHUSUS BANNER FULL MEPET KIRI-KANAN (ANTI-CELAH)
    ========================================================================== */
 
 .hero {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); /* Warna biru background teks */
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     color: white;
-    padding: 0 0 80px 0; /* Padding bawah 80px untuk memberi ruang teks, atasnya 0 agar gambar mepet */
+    padding: 0 0 80px 0; 
     text-align: center;
     position: relative;
-    border-bottom: 8px solid #fbbf24; /* Aksen Kuning OSIS di paling bawah header */
+    border-bottom: 8px solid #fbbf24; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    
+    /* Memastikan tidak ada jarak di area header */
+    width: 100%;
+    margin: 0;
 }
 
-/* Wadah Gambar Banner */
+/* Wadah Gambar Banner (Dipaksa Full Screen Kiri-Kanan) */
 .hero-banner-wrapper {
-    width: 100%;
+    width: 100vw; /* Menggunakan lebar penuh layar browser (Viewport Width) */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 0;
+    margin-bottom: 40px; /* Jarak ke teks di bawahnya */
+    line-height: 0; /* Menghilangkan celah micro di bawah gambar */
     overflow: hidden;
-    line-height: 0; /* Menghilangkan gap putih di bawah gambar */
-    margin-bottom: 40px; /* Jarak antara gambar banner dengan teks di bawahnya */
 }
 
 /* Pengaturan Gambar Banner Desain Lu */
 .hero-banner-img {
     width: 100%;
     height: auto;
-    max-height: 500px; /* Kita batasi maksimal 500px agar di laptop tidak terlalu memakan layar ke bawah */
-    object-fit: cover; /* Biar gambar kepotong rapi kalau layarnya terlalu lebar */
+    max-height: 550px; /* Batas tinggi di laptop agar tidak terlalu amblas ke bawah */
+    object-fit: cover; /* Gambar terpotong rapi secara proporsional jika layar melar */
+    display: block;
 }
 
 /* Konten Teks di Bawah Gambar */
