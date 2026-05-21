@@ -238,13 +238,53 @@ footer {
     overflow: hidden;
 }
 
-/* Pengaturan Gambar Banner Desain Lu */
+/* ==========================================================================
+   KODE BARU: BANNER FULL + PINGGIRAN BAWAH BERGELOMBANG
+   ========================================================================== */
+
+/* Wadah Gambar Banner (Full Viewport Width) */
+.hero-banner-wrapper {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 0;
+    margin-bottom: 20px; /* Jarak dikurangi karena gelombang sudah memberi ruang */
+    line-height: 0;
+    overflow: hidden;
+}
+
+/* Pengaturan Gambar Banner Desain Lu + Efek Gelombang */
 .hero-banner-img {
     width: 100%;
     height: auto;
-    max-height: 550px; /* Batas tinggi di laptop agar tidak terlalu amblas ke bawah */
-    object-fit: cover; /* Gambar terpotong rapi secara proporsional jika layar melar */
+    max-height: 550px;
+    object-fit: cover;
     display: block;
+
+    /* 👇 TRIK AJAIB UNTUK MEMBUAT GELOMBANG (SVG MASK) 👇 */
+    /* Kita memotong gambar bagian bawah pakai bentuk gelombang */
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="black" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="black" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+    
+    /* Memastikan pemotongan presisi di bagian bawah */
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: bottom;
+    mask-position: bottom;
+}
+
+/* Sedikit penyesuaian di HP agar gelombang tidak terlalu ekstrem */
+@media (max-width: 768px) {
+    .hero-banner-img {
+        max-height: 350px;
+        -webkit-mask-size: 150% 100%; /* Melarkan mask agar gelombang lebih landai di HP */
+        mask-size: 150% 100%;
+    }
 }
 
 /* Konten Teks di Bawah Gambar */
